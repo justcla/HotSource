@@ -1,0 +1,211 @@
+﻿Undo...
+Open Changes window in Team explorer
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+    Guid = {57735D06-C920-4415-A2E0-7D6E6FBDFA99}
+    GuidID = 606
+    CmdID = 4096
+    Type = 0x00000001
+    Flags = 0x80000268
+    Canonical name = (null)
+    Localized name = Team.Git.Undo
+---------------------------
+OK   
+---------------------------
+
+
+File - "Commit..."
+Commit a single file (current file)
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+    Guid = {57735D06-C920-4415-A2E0-7D6E6FBDFA99}
+    GuidID = 606
+    CmdID = 4098
+    Type = 0x00000001
+    Flags = 0x80000268
+    Canonical name = (null)
+    Localized name = Team.Git.Commit
+---------------------------
+OK   
+---------------------------
+
+
+
+File - View History...
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+    Guid = {57735D06-C920-4415-A2E0-7D6E6FBDFA99}
+    GuidID = 606
+    CmdID = 4101
+    Type = 0x00000001
+    Flags = 0x80000260
+    Canonical name = (null)
+    Localized name = Team.Git.ViewHistory
+---------------------------
+OK   
+---------------------------
+
+
+File - Compare with Unmodified...
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+    Guid = {57735D06-C920-4415-A2E0-7D6E6FBDFA99}
+    GuidID = 606
+    CmdID = 4097
+    Type = 0x00000001
+    Flags = 0x80000268
+    Canonical name = (null)
+    Localized name = Team.Git.CompareWithUnmodified
+---------------------------
+OK   
+---------------------------
+
+File - Blame (Annotate)
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+
+
+    Guid = {57735D06-C920-4415-A2E0-7D6E6FBDFA99}
+
+    GuidID = 606
+
+    CmdID = 4142
+
+    Type = 0x00000001
+
+    Flags = 0x80000268
+
+    Canonical name = (null)
+
+    Localized name = Team.Git.Annotate
+---------------------------
+OK   
+---------------------------
+
+
+
+_New Branch...
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+
+
+    Guid = {57735D06-C920-4415-A2E0-7D6E6FBDFA99}
+
+    GuidID = 606
+
+    CmdID = 4113  (0x1011)
+
+    Type = 0x00000001
+
+    Flags = 0x00000268
+
+    Canonical name = (null)
+
+    Localized name = Team.Git.CreateBranch
+---------------------------
+OK   
+---------------------------
+
+
+_Manage Branches
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+
+
+    Guid = {57735D06-C920-4415-A2E0-7D6E6FBDFA99}
+
+    GuidID = 606
+
+    CmdID = 4107
+
+    Type = 0x00000001
+
+    Flags = 0x00000260
+
+    Canonical name = (null)
+
+    Localized name = Team.Git.ManageBranches
+---------------------------
+OK   
+---------------------------
+
+View _History...
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+
+
+    Guid = {57735D06-C920-4415-A2E0-7D6E6FBDFA99}
+
+    GuidID = 606
+
+    CmdID = 4101 (0x1005)
+
+    Type = 0x00000001
+
+    Flags = 0x80000260
+
+    Canonical name = (null)
+
+    Localized name = Team.Git.ViewHistory
+---------------------------
+OK   
+---------------------------
+
+Open Changes window in Team Explorer
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+    Guid = {24FC9963-73A7-4B4D-AAA2-87D424E87BC7}
+    GuidID = 806
+    CmdID = 1792
+    Type = 0x00000001
+    Flags = 0x00000200
+    Canonical name = (null)
+    Localized name = View.PendingChanges
+---------------------------
+OK   
+---------------------------
+
+
+Open Sync window in Team Explorer
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+    Guid = {24FC9963-73A7-4B4D-AAA2-87D424E87BC7}
+    GuidID = 806
+    CmdID = 2048
+    Type = 0x00000001
+    Flags = 0x00000200
+    Canonical name = (null)
+    Localized name = View.UnpublishedCommits
+---------------------------
+OK   
+---------------------------

@@ -7,6 +7,10 @@
   <!--This header contains the command ids for the menus provided by the shell. -->
   <Extern href="vsshlids.h"/>
   
+  <!--<UsedCommands>
+    <UsedCommand guid="" id=""/>
+  </UsedCommands>-->
+  
   <Commands package="guidHotSourcePackage">
 
     <Menus>
@@ -20,9 +24,9 @@
           <ButtonText>&amp;File Source</ButtonText>
         </Strings>
       </Menu>
-      <Menu guid="guidHotSourcePackageCmdSet" id="SourceRepoMenu" type="Context">
+      <Menu guid="guidHotSourcePackageCmdSet" id="BranchMenu" type="Context">
         <Strings>
-          <ButtonText>Source &amp;Repo</ButtonText>
+          <ButtonText>&amp;Branch</ButtonText>
         </Strings>
       </Menu>
     </Menus>
@@ -33,18 +37,20 @@
       <Group guid="guidHotSourcePackageCmdSet" id="FileSourceMenuGroup" />
       <Group guid="guidHotSourcePackageCmdSet" id="FileSourceGroup" />
       <Group guid="guidHotSourcePackageCmdSet" id="SourceRepoMenuGroup" />
-      <Group guid="guidHotSourcePackageCmdSet" id="SourceRepoGroup" />
+      <Group guid="guidHotSourcePackageCmdSet" id="BranchGroup" />
+      <Group guid="guidHotSourcePackageCmdSet" id="UndoGroup" />
+      <Group guid="guidHotSourcePackageCmdSet" id="PendingWindowsGroup" />
     </Groups>
 
     <Buttons>
       <Button guid="guidHotSourcePackageCmdSet" id="FetchCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;Fetch...</ButtonText>
+          <ButtonText>&amp;Fetch</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="PullCmdId" type="Button">
         <Strings>
-          <ButtonText>Pu&amp;ll...</ButtonText>
+          <ButtonText>Pu&amp;ll</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="CommitCmdId" type="Button">
@@ -54,7 +60,7 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="PushCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;Push...</ButtonText>
+          <ButtonText>&amp;Push</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="UndoCmdId" type="Button">
@@ -67,14 +73,57 @@
           <ButtonText>&amp;New Branch...</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidHotSourcePackageCmdSet" id="ManageBranchesCmdId" type="Button">
+        <Strings>
+          <ButtonText>&amp;Manage Branches</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidHotSourcePackageCmdSet" id="ShowBranchHistoryCmdId" type="Button">
+        <Strings>
+          <ButtonText>&amp;View History (Branch)</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidHotSourcePackageCmdSet" id="ShowFileHistoryCmdId" type="Button">
+        <Strings>
+          <ButtonText>&amp;View File History</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidHotSourcePackageCmdSet" id="ShowFileDiffCmdId" type="Button">
+        <Strings>
+          <ButtonText>&amp;Diff File  (Compare with Unmodified)</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidHotSourcePackageCmdSet" id="ShowBlameCmdId" type="Button">
+        <Strings>
+          <ButtonText>&amp;Blame (Annotate file commits)</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidHotSourcePackageCmdSet" id="PendingChangesCmdId" type="Button">
+        <Strings>
+          <ButtonText>&amp;Show Changed Files</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidHotSourcePackageCmdSet" id="UnpushedCommitsCmdId" type="Button">
+        <Strings>
+          <ButtonText>&amp;Synchronize (Push/Pull/...)</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
 
   </Commands>
 
   <CommandPlacements>
 
-      <!-- Basic Actions (ie. Pull/Commit/Push commands) -->
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FetchCmdId" priority="0x0010">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="UndoCmdId" priority="0x0010">
+      <Parent guid="guidHotSourcePackageCmdSet" id="UndoGroup" />
+    </CommandPlacement>
+    <!-- Place the Undo group on the Source Control menu -->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="UndoGroup" priority="0x0100">
+      <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
+    </CommandPlacement>
+
+    <!-- Basic Actions (ie. Pull/Commit/Push commands) -->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FetchCmdId" priority="0x0015">
       <Parent guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" />
     </CommandPlacement>
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PullCmdId" priority="0x0020">
@@ -86,19 +135,44 @@
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PushCmdId" priority="0x0040">
       <Parent guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" />
     </CommandPlacement>
-    
     <!-- Place the Basic Actions group on the Source Control menu -->
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" priority="0x0100">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" priority="0x0150">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
     </CommandPlacement>
 
+    
+    <!--Open the Commit and Push windows-->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PendingChangesCmdId" priority="0x0110">
+      <Parent guid="guidHotSourcePackageCmdSet" id="PendingWindowsGroup" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="UnpushedCommitsCmdId" priority="0x0120">
+      <Parent guid="guidHotSourcePackageCmdSet" id="PendingWindowsGroup" />
+    </CommandPlacement>
+    <!--Add Pending Windows group to the Source Control menu-->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PendingWindowsGroup" priority="0x0200">
+      <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
+    </CommandPlacement>
+    
     <!-- File-level commands -->
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="UndoCmdId" priority="0x0010">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="ShowFileHistoryCmdId" priority="0x0010">
       <Parent guid="guidHotSourcePackageCmdSet" id="FileSourceGroup" />
     </CommandPlacement>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="ShowBlameCmdId" priority="0x0010">
+      <Parent guid="guidHotSourcePackageCmdSet" id="FileSourceGroup" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="ShowFileDiffCmdId" priority="0x0010">
+      <Parent guid="guidHotSourcePackageCmdSet" id="FileSourceGroup" />
+    </CommandPlacement>
+
+    <!--Add File Source Group to Source Control menu-->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FileSourceGroup" priority="0x0300">
+      <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
+    </CommandPlacement>
+
+    <!--Add the File commands to the File Menu-->
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FileSourceGroup" priority="0x0010">
       <Parent guid="guidHotSourcePackageCmdSet" id="FileSourceMenu" />
-    </CommandPlacement>
+    </CommandPlacement> 
     <!-- Editor SCC Context menu -->
     <!-- Place the SCC Context menu on the File Source menu group -->
     <CommandPlacement guid="guidTeamExplorerGitCmdSet" id="GitEditor_Context_ThirdGroup" priority="0x0200">
@@ -109,25 +183,41 @@
       <Parent guid="guidHotSourcePackageCmdSet" id="FileSourceMenuGroup" />
     </CommandPlacement>
     <!-- Place the FileSource menu on the Source Control menu -->
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FileSourceMenuGroup" priority="0x0200">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FileSourceMenuGroup" priority="0x1100">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
     </CommandPlacement>
 
-    <!-- Repo-level commands -->
-    <!-- Branch Switcher Context menu -->
+    <!-- Branch menu commands -->
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="NewBranchCmdId" priority="0x0010">
-      <Parent guid="guidHotSourcePackageCmdSet" id="SourceRepoGroup" />
+      <Parent guid="guidHotSourcePackageCmdSet" id="BranchGroup" />
     </CommandPlacement>
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="SourceRepoGroup" priority="0x0100">
-      <Parent guid="guidHotSourcePackageCmdSet" id="SourceRepoMenu" />
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="ManageBranchesCmdId" priority="0x0010">
+      <Parent guid="guidHotSourcePackageCmdSet" id="BranchGroup" />
     </CommandPlacement>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="ShowBranchHistoryCmdId" priority="0x0010">
+      <Parent guid="guidHotSourcePackageCmdSet" id="BranchGroup" />
+    </CommandPlacement>
+    <!--<CommandPlacement guid="guidTeamExplorerGitCmdSet" id="ViewBranchHistoryCmdId" priority="0x0010">
+      <Parent guid="guidHotSourcePackageCmdSet" id="BranchGroup" />
+    </CommandPlacement>-->
+    
+    <!--Add Branch Group to Source Control menu-->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchGroup" priority="0x0400">
+      <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
+    </CommandPlacement>
+
+    <!--Add Source Repo Group to Branch Menu-->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchGroup" priority="0x0100">
+      <Parent guid="guidHotSourcePackageCmdSet" id="BranchMenu" />
+    </CommandPlacement>
+    <!-- Branch Switcher Context menu -->
     <CommandPlacement guid="guidTeamExplorerGitCmdSet" id="GitBranchPicker_Context_FirstGroup" priority="0x0100">
-      <Parent guid="guidHotSourcePackageCmdSet" id="SourceRepoMenu" />
+      <Parent guid="guidHotSourcePackageCmdSet" id="BranchMenu" />
     </CommandPlacement>
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="SourceRepoMenu" priority="0x0100">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchMenu" priority="0x0100">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceRepoMenuGroup" />
     </CommandPlacement>
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="SourceRepoMenuGroup" priority="0x0300">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="SourceRepoMenuGroup" priority="0x1200">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
     </CommandPlacement>
 
@@ -156,14 +246,16 @@
       <!-- Menu IDs -->
       <IDSymbol name="SourceControlMenu" value="0x2000"/>
       <IDSymbol name="FileSourceMenu" value="0x2010"/>
-      <IDSymbol name="SourceRepoMenu" value="0x2020"/>
+      <IDSymbol name="BranchMenu" value="0x2020"/>
       <!-- Group IDs -->
       <IDSymbol name="HotSourceMenuGroup" value="0x1010" />
       <IDSymbol name="BasicActionsGroup" value="0x1020" />
       <IDSymbol name="FileSourceMenuGroup" value="0x1011"/>
       <IDSymbol name="FileSourceGroup" value="0x1012"/>
       <IDSymbol name="SourceRepoMenuGroup" value="0x1021"/>
-      <IDSymbol name="SourceRepoGroup" value="0x1022"/>
+      <IDSymbol name="BranchGroup" value="0x1022"/>
+      <IDSymbol name="UndoGroup" value="0x1023"/>
+      <IDSymbol name="PendingWindowsGroup" value="0x1024"/>
       <!-- Command IDs -->
       <IDSymbol name="FetchCmdId" value="0x0110" />
       <IDSymbol name="PullCmdId" value="0x0115" />
@@ -171,12 +263,23 @@
       <IDSymbol name="PushCmdId" value="0x0125" />
       <IDSymbol name="UndoCmdId" value="0x0130" />
       <IDSymbol name="NewBranchCmdId" value="0x0135" />
+      <IDSymbol name="ManageBranchesCmdId" value="0x0140" />
+      <IDSymbol name="ShowBranchHistoryCmdId" value="0x0145" />
+      <IDSymbol name="ShowFileHistoryCmdId" value="0x0150" />
+      <IDSymbol name="ShowFileDiffCmdId" value="0x0155" />
+      <IDSymbol name="ShowBlameCmdId" value="0x0160" />
+      <IDSymbol name="PendingChangesCmdId" value="0x0165" />
+      <IDSymbol name="UnpushedCommitsCmdId" value="0x0170" />
     </GuidSymbol>
     
     <!-- Imported Guids -->
     <GuidSymbol name="guidTeamExplorerGitCmdSet" value="{57735D06-C920-4415-A2E0-7D6E6FBDFA99}">
+      <!--Groups-->
       <IDSymbol name="GitBranchPicker_Context_FirstGroup" value="0xe060" />
       <IDSymbol name="GitEditor_Context_ThirdGroup" value="0xe072" />
+      <!-- Commands -->
+      <IDSymbol name="ViewBranchHistoryCmdId" value="0x1005" />
+      <IDSymbol name="NewBranchCmdId" value="0x1011" />
     </GuidSymbol>
 
   </Symbols>
