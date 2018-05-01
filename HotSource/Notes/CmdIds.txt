@@ -209,3 +209,35 @@ Command data:
 ---------------------------
 OK   
 ---------------------------
+
+
+---------------------------
+VSDebug Message
+---------------------------
+Command data:
+
+    Guid = {5EFC7975-14BC-11CF-9B2B-00AA00573819}
+    GuidID = 29
+    CmdID = 265
+    Type = 0x00000001
+    Flags = 0x00000060
+    Canonical name = (null)
+    Localized name = Window.NewWindow
+---------------------------
+OK   
+---------------------------
+
+---------------------------
+VSDebug Message
+---------------------------
+Menu data:
+
+    Guid = {D309F791-903F-11D0-9EFC-00A0C911004F}
+    GuidID = 7
+    CmdID = 1792
+    Type = 0x00000100
+    Flags = 0x00000000
+    NameLoc = (null)
+---------------------------
+OK   
+---------------------------

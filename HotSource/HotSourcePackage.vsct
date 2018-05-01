@@ -7,16 +7,12 @@
   <!--This header contains the command ids for the menus provided by the shell. -->
   <Extern href="vsshlids.h"/>
   
-  <!--<UsedCommands>
-    <UsedCommand guid="" id=""/>
-  </UsedCommands>-->
-  
   <Commands package="guidHotSourcePackage">
 
     <Menus>
       <Menu guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" type="Context">
         <Strings>
-          <ButtonText>&amp;Source Control</ButtonText>
+          <ButtonText>&amp;Git Operations</ButtonText>
         </Strings>
       </Menu>
       <Menu guid="guidHotSourcePackageCmdSet" id="FileSourceMenu" type="Context">
@@ -26,7 +22,7 @@
       </Menu>
       <Menu guid="guidHotSourcePackageCmdSet" id="BranchMenu" type="Context">
         <Strings>
-          <ButtonText>&amp;Branch</ButtonText>
+          <ButtonText>&amp;Branch Operations</ButtonText>
         </Strings>
       </Menu>
     </Menus>
@@ -61,6 +57,11 @@
       <Button guid="guidHotSourcePackageCmdSet" id="PushCmdId" type="Button">
         <Strings>
           <ButtonText>&amp;Push</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidHotSourcePackageCmdSet" id="SyncCmdId" type="Button">
+        <Strings>
+          <ButtonText>&amp;Sync</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="UndoCmdId" type="Button">
@@ -135,6 +136,9 @@
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PullCmdId" priority="0x0040">
       <Parent guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" />
     </CommandPlacement>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="SyncCmdId" priority="0x0050">
+      <Parent guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" />
+    </CommandPlacement>
     <!-- Place the Basic Actions group on the Source Control menu -->
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" priority="0x0150">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
@@ -183,9 +187,9 @@
       <Parent guid="guidHotSourcePackageCmdSet" id="FileSourceMenuGroup" />
     </CommandPlacement>
     <!-- Place the FileSource menu on the Source Control menu -->
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FileSourceMenuGroup" priority="0x1100">
+    <!--<CommandPlacement guid="guidHotSourcePackageCmdSet" id="FileSourceMenuGroup" priority="0x1100">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
-    </CommandPlacement>
+    </CommandPlacement>-->
 
     <!-- Branch menu commands -->
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="NewBranchCmdId" priority="0x0010">
@@ -225,8 +229,8 @@
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" priority="0x0100">
       <Parent guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup"/>
     </CommandPlacement>
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" priority="0x0600">
-      <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" priority="0x0200">
+      <Parent guid="guidTeamMenuCmdSet" id="TeamMenu"/>
     </CommandPlacement>
 
   </CommandPlacements>
@@ -261,6 +265,7 @@
       <IDSymbol name="PullCmdId" value="0x0115" />
       <IDSymbol name="CommitCmdId" value="0x0120" />
       <IDSymbol name="PushCmdId" value="0x0125" />
+      <IDSymbol name="SyncCmdId" value="0x0127" />
       <IDSymbol name="UndoCmdId" value="0x0130" />
       <IDSymbol name="NewBranchCmdId" value="0x0135" />
       <IDSymbol name="ManageBranchesCmdId" value="0x0140" />
@@ -278,8 +283,15 @@
       <IDSymbol name="GitBranchPicker_Context_FirstGroup" value="0xe060" />
       <IDSymbol name="GitEditor_Context_ThirdGroup" value="0xe072" />
       <!-- Commands -->
+      <IDSymbol name="UndoCmdId" value="0x1000" />
       <IDSymbol name="ViewBranchHistoryCmdId" value="0x1005" />
       <IDSymbol name="NewBranchCmdId" value="0x1011" />
+    </GuidSymbol>
+    <GuidSymbol name="guidStatusBarCmdSet" value="{24FC9963-73A7-4B4D-AAA2-87D424E87BC7}">
+      <IDSymbol name="ViewPendingChanges" value="0x0700" />
+    </GuidSymbol>
+    <GuidSymbol name="guidTeamMenuCmdSet" value="{D309F791-903F-11D0-9EFC-00A0C911004F}">
+      <IDSymbol name="TeamMenu" value="0x0700" />
     </GuidSymbol>
 
   </Symbols>
