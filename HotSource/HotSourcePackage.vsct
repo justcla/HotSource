@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
+  <Extern href="stdidcmd.h"/>
+
+  <!--This header contains the command ids for the menus provided by the shell. -->
+  <Extern href="vsshlids.h"/>
+  
+  <Commands package="guidHotSourcePackage">
+
+    <Groups>
+      <Group guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" />
+    </Groups>
+
+    <Buttons>
+      
+      <Button guid="guidHotSourcePackageCmdSet" id="CommitCmdId" type="Button">
+        <Strings>
+          <ButtonText>Commit...</ButtonText>
+        </Strings>
+      </Button>
+      
+      <Button guid="guidHotSourcePackageCmdSet" id="PushCmdId" type="Button">
+        <Strings>
+          <ButtonText>Push...</ButtonText>
+        </Strings>
+      </Button>
+      
+      <Button guid="guidHotSourcePackageCmdSet" id="FetchCmdId" type="Button">
+        <Strings>
+          <ButtonText>Fetch...</ButtonText>
+        </Strings>
+      </Button>
+      
+      <Button guid="guidHotSourcePackageCmdSet" id="PullCmdId" type="Button">
+        <Strings>
+          <ButtonText>Pull...</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+  </Commands>
+
+  <CommandPlacements>
+
+    <!-- Main Group -->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" priority="0x0600">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+    </CommandPlacement>
+
+    <!-- Standard Pull/Commit/Push commands -->
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FetchCmdId" priority="0x0010">
+      <Parent guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PullCmdId" priority="0x0020">
+      <Parent guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="CommitCmdId" priority="0x0030">
+      <Parent guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PushCmdId" priority="0x0040">
+      <Parent guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" />
+    </CommandPlacement>
+
+    <!--<GuidSymbol name="PackageCommandSetGuid" value="{57735D06-C920-4415-A2E0-7D6E6FBDFA99}" />-->
+
+    <!-- File-level commands -->
+    <!-- Editor SCC Context menu -->
+    <CommandPlacement guid="PackageCommandSetGuid" id="GitEditor_Context_ThirdGroup" priority="0x0200">
+      <Parent guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" />
+    </CommandPlacement>
+
+    <!-- Repo-level commands -->
+    <!-- Branch Switcher Context menu -->
+    <CommandPlacement guid="PackageCommandSetGuid" id="GitBranchPicker_Context_FirstGroup" priority="0x0100">
+      <Parent guid="guidHotSourcePackageCmdSet" id="HotSourceMenuGroup" />
+    </CommandPlacement>
+
+  </CommandPlacements>
+
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="guidHotSourcePackage" value="{f4b9354d-dc03-4b3e-be0c-49661569dc3b}" />
+
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidHotSourcePackageCmdSet" value="{366327c7-6c0c-471e-be19-0e9f1760529b}">
+      <!-- Group IDs -->
+      <IDSymbol name="HotSourceMenuGroup" value="0x1020" />
+      <!-- Command IDs -->
+      <IDSymbol name="FetchCmdId" value="0x0110" />
+      <IDSymbol name="PullCmdId" value="0x0115" />
+      <IDSymbol name="CommitCmdId" value="0x0120" />
+      <IDSymbol name="PushCmdId" value="0x0125" />
+    </GuidSymbol>
+    
+    <!-- Imported Guids -->
+    <GuidSymbol name="PackageCommandSetGuid" value="{57735D06-C920-4415-A2E0-7D6E6FBDFA99}">
+      <IDSymbol name="GitBranchPicker_Context_FirstGroup" value="0xe060" />
+      <IDSymbol name="GitEditor_Context_ThirdGroup" value="0xe072" />
+    </GuidSymbol>
+
+  </Symbols>
+</CommandTable>
