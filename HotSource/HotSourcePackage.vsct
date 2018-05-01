@@ -123,16 +123,16 @@
     </CommandPlacement>
 
     <!-- Basic Actions (ie. Pull/Commit/Push commands) -->
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FetchCmdId" priority="0x0015">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="CommitCmdId" priority="0x0010">
       <Parent guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" />
     </CommandPlacement>
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PullCmdId" priority="0x0020">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PushCmdId" priority="0x0020">
       <Parent guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" />
     </CommandPlacement>
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="CommitCmdId" priority="0x0030">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="FetchCmdId" priority="0x0030">
       <Parent guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" />
     </CommandPlacement>
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PushCmdId" priority="0x0040">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="PullCmdId" priority="0x0040">
       <Parent guid="guidHotSourcePackageCmdSet" id="BasicActionsGroup" />
     </CommandPlacement>
     <!-- Place the Basic Actions group on the Source Control menu -->
