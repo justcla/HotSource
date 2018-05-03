@@ -91,7 +91,7 @@ namespace HotSource
         }
         private void GoToSyncWindow(object sender, EventArgs e)
         {
-            ExecuteDTECommand("Vew.UnpublishedCommits");
+            ExecuteDTECommand("View.UnpublishedCommits");
         }
 
         private void ExecCreateBranch(object sender, EventArgs e)
