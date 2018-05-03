@@ -2,10 +2,11 @@
 
 namespace HotSource
 {
-    public class CommandIds
+    public class CommandIDs
     {
-            // Package GUID
+        // Package GUID
         public static readonly Guid HotSourcePackageGuid = new Guid("f4b9354d-dc03-4b3e-be0c-49661569dc3b");
+
         /// Command Set GUID
         public static readonly Guid HotSourceCommandSetGuid = new Guid("366327c7-6c0c-471e-be19-0e9f1760529b");
 

@@ -36,21 +36,21 @@ namespace HotSource
         private void AddGlobalCommandHandlers(OleMenuCommandService commandService)
         {
             // Add command handlers for global commands
-            commandService.AddCommand(CreateMenuCommand(CommandIds.CommitCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.PushCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.PullCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.FetchCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.SyncCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.PendingChangesCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.UnpushedCommitsCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.NewBranchCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.ManageBranchesCmdId));
-            commandService.AddCommand(CreateMenuCommand(CommandIds.ShowBranchHistoryCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.CommitCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.PushCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.PullCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.FetchCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.SyncCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.PendingChangesCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.UnpushedCommitsCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.NewBranchCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.ManageBranchesCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIDs.ShowBranchHistoryCmdId));
         }
 
         private MenuCommand CreateMenuCommand(int commandId)
         {
-            return new MenuCommand(this.Execute, new CommandID(CommandIds.HotSourceCommandSetGuid, commandId));
+            return new MenuCommand(this.Execute, new CommandID(CommandIDs.HotSourceCommandSetGuid, commandId));
         }
 
         /// <summary>
