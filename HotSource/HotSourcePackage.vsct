@@ -51,7 +51,7 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="CommitCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;Commit...</ButtonText>
+          <ButtonText>Comm&amp;it...</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="PushCmdId" type="Button">
@@ -81,14 +81,14 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ShowBranchHistoryCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;View History (Branch)</ButtonText>
+          <ButtonText>&amp;View Branch History</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ShowFileHistoryCmdId" type="Button">
         <CommandFlag>DynamicVisibility</CommandFlag>
         <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
-          <ButtonText>&amp;View File History</ButtonText>
+          <ButtonText>View File &amp;History</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ShowFileDiffCmdId" type="Button">
@@ -107,12 +107,12 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="PendingChangesCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;Show Changed Files</ButtonText>
+          <ButtonText>Show &amp;Changed Files</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="UnpushedCommitsCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;Synchronize (Push/Pull/...)</ButtonText>
+          <ButtonText>S&amp;ynchronize (Push/Pull/...)</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -212,9 +212,9 @@
     </CommandPlacement>-->
     
     <!--Add Branch Group to Source Control menu-->
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchGroup" priority="0x0400">
+    <!--<CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchGroup" priority="0x0400">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
-    </CommandPlacement>
+    </CommandPlacement>-->
 
     <!--Add Source Repo Group to Branch Menu-->
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchGroup" priority="0x0100">

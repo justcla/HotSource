@@ -27,11 +27,14 @@ namespace HotSource
         [Import(typeof(IEditorOperationsFactoryService))]
         private IEditorOperationsFactoryService _editorOperationsFactory;
 
+        [Import]
+        internal SVsServiceProvider ServiceProvider;
+
         public void VsTextViewCreated(IVsTextView textViewAdapter)
         {
             IWpfTextView textView = EditorAdaptersFactoryService.GetWpfTextView(textViewAdapter);
 
-            HotSourceCommandFilter commandFilter = new HotSourceCommandFilter(textView, _aggregatorFactory, _globalServiceProvider, _editorOperationsFactory);
+            HotSourceCommandFilter commandFilter = new HotSourceCommandFilter(ServiceProvider, textView, _aggregatorFactory, _globalServiceProvider, _editorOperationsFactory);
             textViewAdapter.AddCommandFilter(commandFilter, out IOleCommandTarget next);
 
             commandFilter.Next = next;

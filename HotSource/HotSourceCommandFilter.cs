@@ -1,4 +1,8 @@
-﻿using Microsoft.VisualStudio;
+﻿using EnvDTE;
+using EnvDTE80;
+using Microsoft.VisualStudio.Shell;
+using EnvDTE;
+using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -18,10 +22,12 @@ namespace HotSource
         private readonly IClassifier classifier;
         private readonly SVsServiceProvider globalServiceProvider;
         private IEditorOperations editorOperations;
+        private SVsServiceProvider serviceProvider;
 
-        public HotSourceCommandFilter(IWpfTextView textView, IClassifierAggregatorService aggregatorFactory,
+        public HotSourceCommandFilter(SVsServiceProvider serviceProvider, IWpfTextView textView, IClassifierAggregatorService aggregatorFactory,
             SVsServiceProvider globalServiceProvider, IEditorOperationsFactoryService editorOperationsFactory)
         {
+            this.serviceProvider = serviceProvider;
             this.textView = textView;
             classifier = aggregatorFactory.GetClassifier(textView.TextBuffer);
             this.globalServiceProvider = globalServiceProvider;
@@ -63,10 +69,13 @@ namespace HotSource
                 switch (nCmdID)
                 {
                     case CommandIDs.UndoCmdId:
+                        return HandleUndo();
                     case CommandIDs.ShowFileHistoryCmdId:
+                        return HandleViewFileHistory();
                     case CommandIDs.ShowFileDiffCmdId:
+                        return HandleFileDiff();
                     case CommandIDs.ShowBlameCmdId:
-                        return HandleCommand(classifier);
+                        return HandleFileBlame();
                 }
             }
 
@@ -78,6 +87,30 @@ namespace HotSource
             return (int)OLEConstants.OLECMDERR_E_UNKNOWNGROUP;
         }
 
+        private int HandleUndo()
+        {
+            ExecuteDTECommand("Team.Git.Undo");
+            return VSConstants.S_OK;
+        }
+
+        private int HandleViewFileHistory()
+        {
+            ExecuteDTECommand("Team.Git.ViewHistory");
+            return VSConstants.S_OK;
+        }
+
+        private int HandleFileDiff()
+        {
+            ExecuteDTECommand("Team.Git.CompareWithUnmodified");
+            return VSConstants.S_OK;
+        }
+
+        private int HandleFileBlame()
+        {
+            ExecuteDTECommand("Team.Git.Annotate");
+            return VSConstants.S_OK;
+        }
+
         /// <summary>
         /// Get the SUIHostCommandDispatcher from the global service provider.
         /// </summary>
@@ -86,15 +119,23 @@ namespace HotSource
             return globalServiceProvider.GetService(typeof(SUIHostCommandDispatcher)) as IOleCommandTarget;
         }
 
-        public int HandleCommand(IClassifier classifier)
+        public int HandleCommand(string commandName)
         {
-            MessageBox.Show("Handle File Operation");
+            MessageBox.Show($"Handle File Operation: {commandName}");
 
-            Guid cmdGroup = VSConstants.VSStd2K;
-            uint cmdID = (uint)VSConstants.VSStd2KCmdID.COMMENT_BLOCK;
+            //ExecuteDTECommand(commandName, commandParameters);
+
+            //Guid cmdGroup = VSConstants.VSStd2K;
+            //uint cmdID = (uint)VSConstants.VSStd2KCmdID.COMMENT_BLOCK;
             //ExecuteVSCommand(cmdGroup, cmdID);
 
             return VSConstants.S_OK;
+        }
+
+        private void ExecuteDTECommand(string commandName, string commandParameters = "")
+        {
+            DTE dte = (DTE)serviceProvider.GetService(typeof(DTE));
+            dte.ExecuteCommand(commandName, commandParameters);
         }
 
         private void ExecuteVSCommand(Guid cmdGroup, uint cmdID)
