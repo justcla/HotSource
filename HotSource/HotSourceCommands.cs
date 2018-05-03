@@ -12,58 +12,56 @@ namespace HotSource
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class HotSource
+    internal sealed class HotSourceCommands
     {
-        /// <summary>
-        /// Command ID.
-        /// </summary>
-        public const int CommandId = 0x0100;
-
-        /// <summary>
-        /// Command menu group (command set GUID).
-        /// </summary>
-        public static readonly Guid CommandSet = new Guid("366327c7-6c0c-471e-be19-0e9f1760529b");
-
         /// <summary>
         /// VS Package that provides this command, not null.
         /// </summary>
         private readonly AsyncPackage package;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HotSource"/> class.
+        /// Initializes a new instance of the <see cref="HotSourceCommands"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
         /// <param name="commandService">Command service to add command to, not null.</param>
-        private HotSource(AsyncPackage package, OleMenuCommandService commandService)
+        private HotSourceCommands(AsyncPackage package, OleMenuCommandService commandService)
         {
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
-            var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(this.Execute, menuCommandID);
-            commandService.AddCommand(menuItem);
+            AddGlobalCommandHandlers(commandService);
+        }
+
+        private void AddGlobalCommandHandlers(OleMenuCommandService commandService)
+        {
+            // Add command handlers for global commands
+            commandService.AddCommand(CreateMenuCommand(CommandIds.CommitCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.PushCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.PullCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.FetchCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.SyncCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.PendingChangesCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.UnpushedCommitsCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.NewBranchCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.ManageBranchesCmdId));
+            commandService.AddCommand(CreateMenuCommand(CommandIds.ShowBranchHistoryCmdId));
+        }
+
+        private MenuCommand CreateMenuCommand(int commandId)
+        {
+            return new MenuCommand(this.Execute, new CommandID(CommandIds.HotSourceCommandSetGuid, commandId));
         }
 
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static HotSource Instance
-        {
-            get;
-            private set;
-        }
+        public static HotSourceCommands Instance { get; private set; }
 
         /// <summary>
         /// Gets the service provider from the owner package.
         /// </summary>
-        private Microsoft.VisualStudio.Shell.IAsyncServiceProvider ServiceProvider
-        {
-            get
-            {
-                return this.package;
-            }
-        }
+        private Microsoft.VisualStudio.Shell.IAsyncServiceProvider ServiceProvider { get { return this.package; } }
 
         /// <summary>
         /// Initializes the singleton instance of the command.
@@ -76,7 +74,7 @@ namespace HotSource
             ThreadHelper.ThrowIfNotOnUIThread();
 
             OleMenuCommandService commandService = await package.GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
-            Instance = new HotSource(package, commandService);
+            Instance = new HotSourceCommands(package, commandService);
         }
 
         /// <summary>

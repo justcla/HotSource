@@ -55,7 +55,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HotSource.cs" />
+    <Compile Include="CommandIds.cs" />
+    <Compile Include="HotSourceCommands.cs" />
     <Compile Include="HotSourcePackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

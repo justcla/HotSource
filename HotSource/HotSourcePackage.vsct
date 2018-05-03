@@ -85,16 +85,22 @@
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ShowFileHistoryCmdId" type="Button">
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
           <ButtonText>&amp;View File History</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ShowFileDiffCmdId" type="Button">
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
           <ButtonText>&amp;Diff File  (Compare with Unmodified)</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ShowBlameCmdId" type="Button">
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
           <ButtonText>&amp;Blame (Annotate file commits)</ButtonText>
         </Strings>
@@ -237,7 +243,9 @@
 
   <VisibilityConstraints>
     <!--<VisibilityItem guid="guidTeamExplorerGitCmdSet" id="GitBranchPicker_Context_FirstGroup" context="GUID_TextEditorFactory"/>-->
-    <VisibilityItem guid="guidTeamExplorerGitCmdSet" id="GitEditor_Context_ThirdGroup" context="GUID_TextEditorFactory"/>
+    <VisibilityItem guid="guidHotSourcePackageCmdSet" id="ShowFileHistoryCmdId" context="GUID_TextEditorFactory"/>
+    <VisibilityItem guid="guidHotSourcePackageCmdSet" id="ShowFileDiffCmdId" context="GUID_TextEditorFactory"/>
+    <VisibilityItem guid="guidHotSourcePackageCmdSet" id="ShowBlameCmdId" context="GUID_TextEditorFactory"/>
   </VisibilityConstraints>
 
 
