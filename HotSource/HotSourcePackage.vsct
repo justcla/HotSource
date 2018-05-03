@@ -212,11 +212,11 @@
     </CommandPlacement>-->
     
     <!--Add Branch Group to Source Control menu-->
-    <!--<CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchGroup" priority="0x0400">
+    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchGroup" priority="0x0400">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
-    </CommandPlacement>-->
+    </CommandPlacement>
 
-    <!--Add Source Repo Group to Branch Menu-->
+    <!--Add Branch Group to Branch Menu-->
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchGroup" priority="0x0100">
       <Parent guid="guidHotSourcePackageCmdSet" id="BranchMenu" />
     </CommandPlacement>
@@ -227,9 +227,9 @@
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="BranchMenu" priority="0x0100">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceRepoMenuGroup" />
     </CommandPlacement>
-    <CommandPlacement guid="guidHotSourcePackageCmdSet" id="SourceRepoMenuGroup" priority="0x1200">
+    <!--<CommandPlacement guid="guidHotSourcePackageCmdSet" id="SourceRepoMenuGroup" priority="0x1200">
       <Parent guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" />
-    </CommandPlacement>
+    </CommandPlacement>-->
 
     <!-- Main Source Control Menu Placement -->
     <CommandPlacement guid="guidHotSourcePackageCmdSet" id="SourceControlMenu" priority="0x0100">
