@@ -5,6 +5,7 @@
         <DisplayName>Hot Source</DisplayName>
         <Description xml:space="preserve">Provides easy access to common source control actions. Includes menu items to Commit, Push, Pull, View File history / Repo history, New Branch, Blame (Annotate), and more.</Description>
         <License>https://github.com/justcla/HotSource/blob/master/LICENSE</License>
+        <Icon>Resources\HotSource_128x.png</Icon>
         <Tags>Source control, Git, Menu items</Tags>
     </Metadata>
     <Installation>
