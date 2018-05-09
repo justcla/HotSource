@@ -61,7 +61,7 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="SyncCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;Sync</ButtonText>
+          <ButtonText>S&amp;ync</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="UndoCmdId" type="Button">
@@ -76,7 +76,7 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ManageBranchesCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;Manage Branches</ButtonText>
+          <ButtonText>Manage &amp;Branches</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ShowBranchHistoryCmdId" type="Button">
@@ -96,13 +96,17 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
           <ButtonText>&amp;Diff File  (Compare with Unmodified)</ButtonText>
+          <CanonicalName>DiffWithUnmodified</CanonicalName>
+          <LocCanonicalName>DiffWithUnmodified</LocCanonicalName>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="ShowBlameCmdId" type="Button">
         <CommandFlag>DynamicVisibility</CommandFlag>
         <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
-          <ButtonText>&amp;Blame (Annotate file commits)</ButtonText>
+          <ButtonText>Blame (&amp;Annotate file commits)</ButtonText>
+          <CanonicalName>AnnotateFileCommits</CanonicalName>
+          <LocCanonicalName>AnnotateFileCommits</LocCanonicalName>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="PendingChangesCmdId" type="Button">
@@ -112,7 +116,9 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="UnpushedCommitsCmdId" type="Button">
         <Strings>
-          <ButtonText>S&amp;ynchronize (Push/Pull/...)</ButtonText>
+          <ButtonText>&amp;Synchronize (Push/Pull/...)</ButtonText>
+          <CanonicalName>ShowSyncView</CanonicalName>
+          <LocCanonicalName>ShowSyncView</LocCanonicalName>
         </Strings>
       </Button>
     </Buttons>
@@ -248,6 +254,43 @@
     <VisibilityItem guid="guidHotSourcePackageCmdSet" id="ShowBlameCmdId" context="GUID_TextEditorFactory"/>
   </VisibilityConstraints>
 
+  <KeyBindings>
+    <!-- VK_OEM_2 = /? key. VK_OEM_5 = |\ key. VK_OEM_4 = [{ key. VK_OEM_6 = ]} key. -->
+    <!-- Note: The shortcut listed last is the one that will appear next to the command in the menu. -->
+    <!-- Global commands -->
+    <!--<KeyBinding guid="guidHotSourcePackageCmdSet" id="cmdidGoToLastEditLocation" editor="guidVSStd97" mod1="Control Shift" key1="VK_BACK"/>-->
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="CommitCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="I"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="CommitCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="I"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="FetchCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="F"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="FetchCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="F"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="PullCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="L"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="PullCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="L"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="SyncCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="Y"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="SyncCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="Y"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="PushCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="P"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="PushCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="P"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowBranchHistoryCmdId" editor="guidVSStd97" mod1="Control" key1="VK_OEM_5" mod2="Control" key2="H"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowBranchHistoryCmdId" editor="guidVSStd97" mod1="Control" key1="VK_OEM_5" key2="H"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="NewBranchCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="N"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="NewBranchCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="N"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ManageBranchesCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="B"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ManageBranchesCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="B"/>
+    <!-- Global window commands -->
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="PendingChangesCmdId" editor="guidVSStd97" mod1="Control" key1="VK_OEM_5" mod2="Control" key2="I"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="PendingChangesCmdId" editor="guidVSStd97" mod1="Control" key1="VK_OEM_5" key2="I"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="UnpushedCommitsCmdId" editor="guidVSStd97" mod1="Control" key1="VK_OEM_5" mod2="Control" key2="Y"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="UnpushedCommitsCmdId" editor="guidVSStd97" mod1="Control" key1="VK_OEM_5" key2="Y"/>
+    <!-- Text editor commands -->
+    <!--<KeyBinding guid="guidHotSourcePackageCmdSet" id="cmdidExpandSelection" editor="GUID_TextEditorFactory" mod1="Control Shift" key1="VK_OEM_4" mod2="Control Shift" key2="VK_OEM_6"/>-->
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="UndoCmdId" editor="GUID_TextEditorFactory" mod1="Control" key1="K" mod2="Control Shift" key2="U"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="UndoCmdId" editor="GUID_TextEditorFactory" mod1="Control" key1="K" key2="U"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowFileHistoryCmdId" editor="GUID_TextEditorFactory" mod1="Control" key1="K" mod2="Control Shift" key2="H"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowFileHistoryCmdId" editor="GUID_TextEditorFactory" mod1="Control" key1="K" key2="H"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowFileDiffCmdId" editor="GUID_TextEditorFactory" mod1="Control" key1="K" mod2="Control Shift" key2="D"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowFileDiffCmdId" editor="GUID_TextEditorFactory" mod1="Control" key1="K" key2="D"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowBlameCmdId" editor="GUID_TextEditorFactory" mod1="Control" key1="K" mod2="Control Shift" key2="A"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowBlameCmdId" editor="GUID_TextEditorFactory" mod1="Control" key1="K" key2="A"/>
+  </KeyBindings>
 
   <Symbols>
     <!-- This is the package guid. -->
