@@ -1,0 +1,4 @@
+﻿Hot Source
+by Justin Clareburt
+
+09-May-2018 v0.1.0: Alpha release
