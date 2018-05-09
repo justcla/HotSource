@@ -45,7 +45,7 @@ namespace HotSource
         public const string PackageGuidString = "f4b9354d-dc03-4b3e-be0c-49661569dc3b";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HotSource"/> class.
+        /// Initializes a new instance of the <see cref="HotSourceCommands"/> class.
         /// </summary>
         public HotSourcePackage()
         {
@@ -69,7 +69,7 @@ namespace HotSource
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            await HotSource.InitializeAsync(this);
+            await HotSourceCommands.InitializeAsync(this);
         }
 
         #endregion
