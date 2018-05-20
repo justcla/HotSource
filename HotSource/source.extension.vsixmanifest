@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="HotSource.c9d176f3-384c-478b-b6a2-f3e0044ef75e" Version="0.1.1" Language="en-US" Publisher="Justin Clareburt" />
+        <Identity Id="HotSource.c9d176f3-384c-478b-b6a2-f3e0044ef75e" Version="0.1.2" Language="en-US" Publisher="Justin Clareburt" />
         <DisplayName>Hot Source</DisplayName>
         <Description xml:space="preserve">Provides easy access to common source control actions. Includes menu items to Commit, Push, Pull, View File history / Repo history, New Branch, Blame (Annotate), and more.</Description>
         <ReleaseNotes>ReleaseNotes.txt</ReleaseNotes>
