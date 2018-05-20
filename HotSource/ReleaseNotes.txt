@@ -1,4 +1,5 @@
 ﻿Hot Source
 by Justin Clareburt
 
+20-May-2018 v0.1.1: Updated shortcuts and accelerator keys
 09-May-2018 v0.1.0: Alpha release

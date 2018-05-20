@@ -51,7 +51,7 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="CommitCmdId" type="Button">
         <Strings>
-          <ButtonText>Comm&amp;it...</ButtonText>
+          <ButtonText>&amp;Commit...</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="PushCmdId" type="Button">
@@ -61,7 +61,7 @@
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="SyncCmdId" type="Button">
         <Strings>
-          <ButtonText>S&amp;ync</ButtonText>
+          <ButtonText>&amp;Sync</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="UndoCmdId" type="Button">
@@ -104,19 +104,19 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <CommandFlag>DefaultInvisible</CommandFlag>
         <Strings>
-          <ButtonText>Blame (&amp;Annotate file commits)</ButtonText>
+          <ButtonText>&amp;Annotate file commits (Blame)</ButtonText>
           <CanonicalName>AnnotateFileCommits</CanonicalName>
           <LocCanonicalName>AnnotateFileCommits</LocCanonicalName>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="PendingChangesCmdId" type="Button">
         <Strings>
-          <ButtonText>Show &amp;Changed Files</ButtonText>
+          <ButtonText>Show Changed F&amp;iles</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidHotSourcePackageCmdSet" id="UnpushedCommitsCmdId" type="Button">
         <Strings>
-          <ButtonText>&amp;Synchronize (Push/Pull/...)</ButtonText>
+          <ButtonText>S&amp;ynchronize (Push/Pull/...)</ButtonText>
           <CanonicalName>ShowSyncView</CanonicalName>
           <LocCanonicalName>ShowSyncView</LocCanonicalName>
         </Strings>
@@ -259,14 +259,14 @@
     <!-- Note: The shortcut listed last is the one that will appear next to the command in the menu. -->
     <!-- Global commands -->
     <!--<KeyBinding guid="guidHotSourcePackageCmdSet" id="cmdidGoToLastEditLocation" editor="guidVSStd97" mod1="Control Shift" key1="VK_BACK"/>-->
-    <KeyBinding guid="guidHotSourcePackageCmdSet" id="CommitCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="I"/>
-    <KeyBinding guid="guidHotSourcePackageCmdSet" id="CommitCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="I"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="CommitCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="C"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="CommitCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="C"/>
     <KeyBinding guid="guidHotSourcePackageCmdSet" id="FetchCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="F"/>
     <KeyBinding guid="guidHotSourcePackageCmdSet" id="FetchCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="F"/>
     <KeyBinding guid="guidHotSourcePackageCmdSet" id="PullCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="L"/>
     <KeyBinding guid="guidHotSourcePackageCmdSet" id="PullCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="L"/>
-    <KeyBinding guid="guidHotSourcePackageCmdSet" id="SyncCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="Y"/>
-    <KeyBinding guid="guidHotSourcePackageCmdSet" id="SyncCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="Y"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="SyncCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="S"/>
+    <KeyBinding guid="guidHotSourcePackageCmdSet" id="SyncCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="S"/>
     <KeyBinding guid="guidHotSourcePackageCmdSet" id="PushCmdId" editor="guidVSStd97" mod1="Control" key1="K" mod2="Control Shift" key2="P"/>
     <KeyBinding guid="guidHotSourcePackageCmdSet" id="PushCmdId" editor="guidVSStd97" mod1="Control" key1="K" key2="P"/>
     <KeyBinding guid="guidHotSourcePackageCmdSet" id="ShowBranchHistoryCmdId" editor="guidVSStd97" mod1="Control" key1="VK_OEM_5" mod2="Control" key2="H"/>

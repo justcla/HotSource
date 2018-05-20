@@ -144,6 +144,14 @@ namespace HotSource
 
         private async Task PutCaretInCommitBox()
         {
+            //ITeamExplorer te = package.GetServiceAsync(typeof(ITeamExplorer)) as ITeamExplorer;
+            //te.NavigateToPage(Guid.Parse(TeamExplorerPageIds.GitChanges), null);
+
+            //ToolWindowPane connectedServiceProviderToolWindow = this.package.FindToolWindow(
+            //    toolWindowType: typeof(ToolWIndowTeamExplorer),
+            //    id: toolWindowId,
+            //    create: true);
+
             await ExecuteDTECommand("View.PendingChanges");
             // TODO: Ensure window is loaded
             SendKeys.SendWait("%{HOME}");   // Alt+Home moves focus to top of window.
